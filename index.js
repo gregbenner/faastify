@@ -25,7 +25,12 @@ class FunctionContext {
   }
 
   status(value) {
-    return value ? this : this.value;
+    if (!value) {
+      return this.value;
+    }
+
+    this.value = value;
+    return this;
   }
 
   headers(value) {
